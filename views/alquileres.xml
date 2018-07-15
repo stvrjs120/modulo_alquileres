@@ -87,9 +87,6 @@
 
         <menuitem id="Edificio_menu" name="Edificios" parent="modulo_alquileres_menu" action="edificio_list_action"/>
 
-        <menuitem id="piso_menu" name="Pisos" parent="modulo_alquileres_menu" action="piso_list_action"/>
-
-        <menuitem id="local_menu" name="Locales" parent="modulo_alquileres_menu" action="local_list_action"/>
 
 
         <!-- Formulario de vista de Pisos -->
@@ -122,7 +119,7 @@
             <field name="model">modulo_alquileres.piso</field>
             <field name="arch" type="xml">
                 <search>
-                    <field name="numero_local"/>
+                    <field name="numero_piso"/>
                 </search>
             </field>
         </record>
@@ -145,6 +142,8 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <menuitem id="piso_menu" name="Pisos" parent="modulo_alquileres_menu" action="piso_list_action"/>
 
 
 
@@ -202,6 +201,8 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <menuitem id="local_menu" name="Locales" parent="modulo_alquileres_menu" action="local_list_action"/>
 
 
     </data>

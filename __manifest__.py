@@ -27,7 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/alquileres.xml',
         'views/templates.xml',
-        'views/partnet.xml',
+        'views/partner.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
