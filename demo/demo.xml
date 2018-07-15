@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record model="modulo_alquileres.edificio" id="edificio0">
+            <field name="nombre_edificio">Edificio 0</field>
+        </record>
+        <record model="modulo_alquileres.edificio" id="edificio1">
+            <field name="nombre_edificio">Edificio 1</field>
+        </record>
+        <record model="modulo_alquileres.edificio" id="edificio2">
+            <field name="nombre_edificio">Edificio 2</field>
+        </record>
+    </data>
+</odoo>

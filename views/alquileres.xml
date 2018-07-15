@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Formulario de vista de Edificio -->
+        <record model="ir.ui.view" id="edificio_form_view">
+            <field name="name">edificio.form</field>
+            <field name="model">modulo_alquileres.edificio</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de Edificio">
+                    <sheet>
+                        <group>
+                            <field name="nombre_edificio"/>
+                            <field name="direccion_edificio"/>
+                            <field name="area_terrero_edificio"/>
+                            <field name="area_construida_edificio"/>
+                            <field name="valor_real"/>
+                            <field name="valor_real"/>
+                        </group>
+                        <notebook>
+                            <page string="Pisos">
+                                <field name="piso_ids">
+                                    <tree string="Pisos Registrados">
+                                        <field name="numero_piso"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Buscador de Edificios -->
+        <record model="ir.ui.view" id="edificio_search_view">
+            <field name="name">edificio.search</field>
+            <field name="model">modulo_alquileres.edificio</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="nombre_edificio"/>
+                    <field name="direccion_edificio"/>
+                    <field name="area_terrero_edificio"/>
+                    <field name="area_construida_edificio"/>
+                    <field name="valor_real"/>
+                    <field name="valor_real"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- override the automatically generated list view for courses -->
+        <record model="ir.ui.view" id="edificio_tree_view">
+            <field name="name">edificio.tree</field>
+            <field name="model">modulo_alquileres.edificio</field>
+            <field name="arch" type="xml">
+                <tree string="Arbol de Edificios">
+                    <field name="nombre_edificio"/>
+                    <field name="direccion_edificio"/>
+                    <field name="area_terrero_edificio"/>
+                    <field name="area_construida_edificio"/>
+                    <field name="valor_real"/>
+                    <field name="valor_real"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- window action -->
+        <!--
+            The following tag is an action definition for a "window action",
+            that is an action opening a view or a set of views
+        -->
+        <record model="ir.actions.act_window" id="edificio_list_action">
+            <field name="name">Edificios</field>
+            <field name="res_model">modulo_alquileres.edificio</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Ingrese el primer Piso</p>
+            </field>
+        </record>
+
+
+
+        <!-- top level menu: no parent -->
+        <menuitem id="main_modulo_alquileres_menu" name="Alquileres"/>
+
+        <menuitem id="modulo_alquileres_menu" name="Alquileres" parent="main_modulo_alquileres_menu"/>
+
+        <menuitem id="Edificio_menu" name="Edificios" parent="modulo_alquileres_menu" action="edificio_list_action"/>
+
+        <menuitem id="piso_menu" name="Pisos" parent="modulo_alquileres_menu" action="piso_list_action"/>
+
+        <menuitem id="local_menu" name="Locales" parent="modulo_alquileres_menu" action="local_list_action"/>
+
+
+        <!-- Formulario de vista de Pisos -->
+        <record model="ir.ui.view" id="piso_form_view">
+            <field name="name">piso.form</field>
+            <field name="model">modulo_alquileres.piso</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de Piso">
+                    <sheet>
+                        <group>
+                            <field name="numero_piso"/>
+                        </group>
+                        <notebook>
+                            <page string="Locales">
+                                <field name="local_ids">
+                                    <tree string="Locales Registrados">
+                                        <field name="numero_local"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Buscador de Pisos -->
+        <record model="ir.ui.view" id="piso_search_view">
+            <field name="name">piso.search</field>
+            <field name="model">modulo_alquileres.piso</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="numero_local"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- piso tree/list view -->
+        <record model="ir.ui.view" id="piso_tree_view">
+            <field name="name">piso.tree</field>
+            <field name="model">modulo_alquileres.piso</field>
+            <field name="arch" type="xml">
+                <tree string="Arbol de Pisos">
+                    <field name="numero_piso"/>
+                    <field name="edificio_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="piso_list_action">
+            <field name="name">Pisos</field>
+            <field name="res_model">modulo_alquileres.piso</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <!-- Formulario de vista de Locales -->
+        <record model="ir.ui.view" id="local_form_view">
+            <field name="name">local.form</field>
+            <field name="model">modulo_alquileres.local</field>
+            <field name="arch" type="xml">
+                <form string="Formulario de Local">
+                    <sheet>
+                        <group>
+                            <field name="numero_local"/>
+                            <field name="area_m2"/>
+                            <field name="medidor_electrico"/>
+                            <field name="medidor_agua"/>
+                            <field name="piso_id" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Buscador de Locales -->
+        <record model="ir.ui.view" id="local_search_view">
+            <field name="name">local.search</field>
+            <field name="model">modulo_alquileres.local</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="numero_local"/>
+                    <field name="area_m2"/>
+                    <field name="medidor_electrico"/>
+                    <field name="medidor_agua"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- session tree/list view -->
+        <record model="ir.ui.view" id="local_tree_view">
+            <field name="name">local.tree</field>
+            <field name="model">modulo_alquileres.local</field>
+            <field name="arch" type="xml">
+                <tree string="Arbol de Locales">
+                    <field name="numero_local"/>
+                    <field name="area_m2"/>
+                    <field name="medidor_electrico"/>
+                    <field name="medidor_agua"/>
+                    <field name="piso_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="local_list_action">
+            <field name="name">Locales</field>
+            <field name="res_model">modulo_alquileres.local</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+    </data>
+</odoo>
